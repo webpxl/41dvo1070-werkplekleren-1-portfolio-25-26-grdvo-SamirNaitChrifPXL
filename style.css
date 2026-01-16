@@ -1,0 +1,265 @@
+/* Algemene instellingen */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Simpel lettertype */
+}
+
+/* De kleur geel uit het voorbeeld */
+:root {
+    --theme-yellow: #fec42d;
+}
+
+/* --- LINKERKANT STYLING --- */
+.left-section {
+    padding: 50px;
+}
+
+.content-box {
+    max-width: 600px; /* Iets breder gemaakt voor de grotere tekst */
+    margin: 0 auto;
+}
+
+.main-name {
+    font-weight: 900;
+    font-size: 5rem; /* Stuk groter (was 3.5rem) */
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+/* Dit zorgt voor het omlijnde effect bij de naam */
+.outline-text {
+    color: white;
+    -webkit-text-stroke: 3px var(--theme-yellow); /* Iets dikkere rand voor de grotere tekst */
+}
+
+.job-title {
+    background-color: var(--theme-yellow);
+    color: #000;
+    padding: 10px 15px; /* Iets meer padding */
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 1.1rem; /* Groter (was 0.9rem) */
+}
+
+.description {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem; /* Groter (was 0.9rem) */
+    line-height: 1.7;
+}
+
+/* De knop styling */
+.btn-custom {
+    background-color: var(--theme-yellow);
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 15px 40px; /* Grotere knop */
+    border: none;
+    text-transform: uppercase;
+    font-size: 1.2rem; /* Grotere tekst in de knop */
+}
+
+.btn-custom:hover {
+    background-color: #e5b028;
+    color: white;
+}
+
+/* --- RECHTERKANT STYLING --- */
+.right-section {
+    /* Vervang deze URL straks door jouw eigen foto */
+    background-image: url('./Bijlage/samir.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Nodig om het menu te positioneren */
+    min-height: 50vh; /* Zorgt dat hij op mobiel ook zichtbaar is */
+}
+
+/* Het zwevende menu */
+.floating-menu {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Precies in het midden zetten */
+    background-color: var(--theme-yellow);
+    border-radius: 50px;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.floating-menu a {
+    color: #333;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.floating-menu a:hover {
+    color: white;
+}
+
+/* --- ABOUT PAGE STYLING --- */
+
+/* Sidebar Layout */
+.sidebar-photo img {
+    filter: grayscale(100%); /* Maakt de foto zwart-wit zoals in voorbeeld */
+    display: block;
+}
+
+.sidebar-nav {
+    background-color: var(--theme-yellow); /* Gele achtergrond */
+    padding: 20px 0;
+}
+
+/* Navigatie links (met stippellijn effect) */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 0.9rem;
+    position: relative;
+    padding: 10px 0;
+}
+
+/* De stippellijn in het midden van het menu */
+.nav-links::before {
+    content: '';
+    position: absolute;
+    height: 40%; /* Hoogte van de stippellijn */
+    border-left: 1px dashed #000;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+.nav-links a.active {
+    text-decoration: underline; /* De huidige pagina onderstreept */
+}
+
+/* Content Rechts */
+.about-header {
+    border: 2px dashed #ccc; /* De stippellijn box om de titel */
+    padding: 20px;
+    background-color: #e9ecef; /* Iets donkerdere achtergrond in de box */
+}
+
+.about-header h1 {
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Stats Box (Zwart blok) */
+.stats-box {
+    border: 1px solid #333;
+}
+
+.text-yellow {
+    color: var(--theme-yellow);
+    font-weight: bold;
+}
+
+/* Iconen bij "What I do" */
+.icon-box {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+/* --- PORTFOLIO PROJECTEN STYLING --- */
+
+.project-card {
+    position: relative;
+    overflow: hidden; /* Zorgt dat de afbeelding niet buiten de lijntjes gaat bij inzoomen */
+    border-radius: 8px; /* Licht afgeronde hoekjes */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Klein schaduwtje voor diepte */
+    cursor: pointer;
+}
+
+.project-card img {
+    transition: transform 0.3s ease; /* Zorgt voor een soepele beweging */
+    width: 100%;
+    height: 300px; /* Zorgt dat alle foto's even hoog zijn */
+    object-fit: cover; /* Zorgt dat de foto niet uitrekt/vervormt */
+}
+
+/* Hover effect: Foto zoomt een beetje in */
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* De tekst over de foto (optioneel, verschijnt bij hover) */
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Halftransparant zwart */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    opacity: 0; /* Standaard onzichtbaar */
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1; /* Zichtbaar als je eroverheen muist */
+}
+
+/* --- CONTACT PAGE STYLING --- */
+
+.contact-icon-box {
+    font-size: 3.5rem; /* Groot icoon */
+    color: #333;
+    /* Als je ze echt als lijntjes wilt (outline), gebruiken we deze truc: */
+    -webkit-text-stroke: 1px #333;
+    color: transparent; /* Maakt de binnenkant doorzichtig */
+}
+
+/* Voor het telefoon icoon werkt fill soms beter, of gewoon solide kleur: */
+/* Als je ze liever gewoon zwart wilt, haal dan de 'color: transparent' weg hierboven */
+
+.contact-info p {
+    font-size: 0.9rem;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* --- RESUME / CARRIERE PAGE STYLING --- */
+
+/* Het gele blokje met het jaartal */
+.resume-badge {
+    background-color: var(--theme-yellow);
+    color: white; /* Of zwart, afhankelijk van wat je mooier vindt */
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: inline-block; /* Zorgt dat het blokje mooi om de tekst past */
+    margin-bottom: 5px;
+}
+
+/* De stippellijn tussen Education en Experience */
+.dashed-divider {
+    border: 0;
+    border-top: 2px dashed #ccc; /* Grijze stippels */
+    opacity: 0.5;
+}
+
+/* Zorg dat de titels (Education/Experience) goed opvallen */
+.resume-section h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
