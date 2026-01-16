@@ -21,6 +21,7 @@ body, html {
 }
 
 .main-name {
+    color: #021945;
     font-weight: 900;
     font-size: 5rem; /* Stuk groter (was 3.5rem) */
     text-transform: uppercase;
@@ -55,7 +56,7 @@ body, html {
 /* De knop styling */
 .btn-custom {
     background-color: var(--theme-green);
-    color: white;
+    color: #021945;
     font-weight: bold;
     border-radius: 50px;
     padding: 15px 40px; /* Grotere knop */
@@ -66,7 +67,7 @@ body, html {
 
 .btn-custom:hover {
     background-color: #819268;
-    color: white;
+    color: #021945;
 }
 
 /* --- RECHTERKANT STYLING --- */
@@ -179,21 +180,42 @@ body, html {
 
 /* Content Rechts */
 .about-header {
-    border: 2px dashed #ccc; /* De stippellijn box om de titel */
-    padding: 20px;
-    background-color: #e9ecef; /* Iets donkerdere achtergrond in de box */
+    border: none; /* Geen stippellijnen meer */
+    background-color: transparent; /* Geen grijze achtergrond */
+    text-align: center;
+    margin-bottom: 3rem; /* Wat ruimte eronder */
+    padding: 0;
 }
 
 .about-header h1 {
-    font-weight: 900;
-    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; /* Extra dik */
+    font-size: 3.5rem;
+    color: #021945; /* Je donkerblauwe kleur */
     text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
     margin: 0;
+}
+
+/* Het groene streepje onder de tekst */
+.about-header h1::after {
+    content: '';
+    display: block;
+    width: 60px; /* Hoe breed het streepje is */
+    height: 6px; /* Hoe dik het streepje is */
+    background-color: var(--theme-green);
+    margin: 15px auto 0; /* Centreert het streepje */
+    border-radius: 10px; /* Rondt het streepje af */
 }
 
 /* Stats Box (Zwart blok) */
 .stats-box {
-    border: 1px solid #021945;
+    margin-top: 50px;
+    background-color: #021945;
+    border: 5px solid var(--theme-green);
+    border-radius: 10px;
 }
 
 .text-yellow {
@@ -211,17 +233,19 @@ body, html {
 
 .project-card {
     position: relative;
-    overflow: hidden; /* Zorgt dat de afbeelding niet buiten de lijntjes gaat bij inzoomen */
-    border-radius: 8px; /* Licht afgeronde hoekjes */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Klein schaduwtje voor diepte */
+    overflow: hidden;
+    border-radius: 15px; /* Iets ronder, past beter bij je profielfoto */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Iets meer diepte */
     cursor: pointer;
+    height: 100%; /* Zorgt dat de kaart de hele hoogte pakt */
 }
 
 .project-card img {
-    transition: transform 0.3s ease; /* Zorgt voor een soepele beweging */
+    transition: transform 0.5s ease;
     width: 100%;
-    height: 300px; /* Zorgt dat alle foto's even hoog zijn */
-    object-fit: cover; /* Zorgt dat de foto niet uitrekt/vervormt */
+    height: 350px; /* Vaste hoogte zodat ze gelijk zijn */
+    object-fit: cover; /* Voorkomt vervorming */
+    display: block;
 }
 
 /* Hover effect: Foto zoomt een beetje in */
@@ -376,7 +400,7 @@ body, html {
 /* Zorg dat de knop past bij de rest */
 .btn-custom {
     background-color: var(--theme-green);
-    color: white;
+    color: #021945;
     font-weight: bold;
     border-radius: 50px;
     padding: 10px 40px;
@@ -386,5 +410,5 @@ body, html {
 
 .btn-custom:hover {
     background-color: #4e5e42; /* Iets donkerder groen */
-    color: white;
+    color: #021945;
 }
