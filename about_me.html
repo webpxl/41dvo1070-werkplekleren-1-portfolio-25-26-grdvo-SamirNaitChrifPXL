@@ -36,7 +36,10 @@
                 <h1 class="fw-bold">Over mij</h1>
             </div>
 
-            <h3 class="fw-light">Ik ben <span class="fw-bold">Samir</span>, Student Digitale Vormgeving</h3>
+            <h3 class="fw-light">
+                Ik ben <span class="fw-bold">Samir</span>,
+                <span id="typewriter" style="color: var(--theme-green); font-weight: bold;"></span><span id="cursor">|</span>
+            </h3>
             <p class="text-secondary mb-5">
                 Ik ben een gepassioneerde student die houdt van strakke designs en moderne websites.
                 Ik probeer me te specialiseren in zowel grafisch ontwerp als webontwikkeling, zodat ik veelzijdige projecten kan aanpakken.
@@ -103,6 +106,64 @@
         </div>
     </div>
 </div>
+<script>
+    const textElement = document.getElementById("typewriter");
+    const cursorElement = document.getElementById("cursor");
+
+    // Hier kun je de woorden aanpassen die hij moet typen!
+    const texts = [
+        "Student Digitale Vormgeving",
+        "Web Developer",
+        "Grafisch Ontwerper",
+        "Voetballer"
+    ];
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100; // Snelheid van typen
+
+    function type() {
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+            // Tekst verwijderen
+            textElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 50; // Sneller verwijderen
+        } else {
+            // Tekst typen
+            textElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 100; // Normaal typen
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+            // Als het woord af is, even pauzeren
+            isDeleting = true;
+            typeSpeed = 2000; // Wacht 2 seconden voor hij gaat wissen
+        } else if (isDeleting && charIndex === 0) {
+            // Als het woord weg is, naar het volgende woord
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    // Start het effect als de pagina geladen is
+    document.addEventListener('DOMContentLoaded', type);
+
+    // Klein knipperend effect voor de cursor
+    setInterval(() => {
+        if (cursorElement.style.opacity === '0') {
+            cursorElement.style.opacity = '1';
+        } else {
+            cursorElement.style.opacity = '0';
+        }
+    }, 500);
+</script>
 
 </body>
 </html>
